@@ -46,7 +46,7 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerVersion '1.5.30'
     }
     packagingOptions {
         resources {
@@ -69,6 +69,8 @@ dependencies {
     implementation "androidx.compose.material3:material3:1.0.0-alpha01"
 
     implementation "com.google.dagger:hilt-android:2.40.3"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0"
     kapt "com.google.dagger:hilt-compiler:2.40.3"
 
     testImplementation 'junit:junit:4.+'

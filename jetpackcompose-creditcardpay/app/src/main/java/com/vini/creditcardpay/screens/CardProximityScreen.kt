@@ -9,15 +9,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.Modifier
 import com.vini.creditcardpay.components.CreditCard
 import com.vini.creditcardpay.components.PulseAnimation
-import com.vini.creditcardpay.components.VisaAnimation
+import com.vini.creditcardpay.screens.viewmodel.CardProximityViewModel
 import com.vini.creditcardpay.state.StateScreen
 import kotlinx.coroutines.delay
 
 @Composable
-fun CardProximityScreen() {
+fun CardProximityScreen(viewModel: CardProximityViewModel = viewModel()) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         var stateScreen by remember { mutableStateOf(StateScreen.WAITING_CARD_PROXIMITY) }
         when (stateScreen) {
