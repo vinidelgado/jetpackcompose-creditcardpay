@@ -6,33 +6,35 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vini.creditcardpay.state.StateScreen
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class CardProximityViewModel @Inject constructor() : ViewModel(), LifecycleObserver {
-    private val _navigateStep = MutableLiveData<StateScreen>()
-    val navigateStep: LiveData<StateScreen> = _navigateStep
+    private var value = 0
+    private val _state = MutableLiveData(StateScreen.WAITING_CARD_PROXIMITY)
+    val state: LiveData<StateScreen> get() = _state
 
-
-    fun init() {
-        _navigateStep.value = StateScreen.WAITING_CARD_PROXIMITY
-    }
-
-    fun nextStep(step: StateScreen) {
-        when (step) {
+    fun nextStep() {
+        when (_state.value) {
             StateScreen.WAITING_CARD_PROXIMITY -> {
-                _navigateStep.value = StateScreen.VALIDATING_CARD
+                _state.value = StateScreen.VALIDATING_CARD
             }
             StateScreen.VALIDATING_CARD -> {
-                _navigateStep.value = StateScreen.CARD_RECOGNIZED
+                _state.value = StateScreen.CARD_RECOGNIZED
             }
             StateScreen.CARD_RECOGNIZED -> {
-                _navigateStep.value = StateScreen.CARD_DONE
+                _state.value = StateScreen.CARD_DONE
             }
             else -> {
-                _navigateStep.value = StateScreen.CARD_NONE
+                _state.value = StateScreen.CARD_NONE
             }
         }
+    }
+
+    sealed interface CardProximityUiState {
+        val state: StateScreen
     }
 
 }
