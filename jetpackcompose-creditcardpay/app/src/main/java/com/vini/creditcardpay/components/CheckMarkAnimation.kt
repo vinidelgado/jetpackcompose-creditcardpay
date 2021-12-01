@@ -1,6 +1,9 @@
 package com.vini.creditcardpay.components
 
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -16,8 +19,8 @@ fun CheckMarkAnimation() {
         LottieCompositionSpec.RawRes(R.raw.check_mark),
     )
     LottieAnimation(
-        modifier = Modifier.fillMaxWidth(0.25f),
+        modifier = Modifier.fillMaxSize(),
         composition = composition,
-        contentScale = ContentScale.FillWidth,
+        contentScale = ContentScale.FillHeight,
     )
 }
