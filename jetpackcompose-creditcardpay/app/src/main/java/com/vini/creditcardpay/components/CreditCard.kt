@@ -15,15 +15,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.vini.creditcardpay.state.PaymentFlag
 import com.vini.creditcardpay.state.StateScreen
-import com.vini.creditcardpay.ui.theme.CardBackground
-import com.vini.creditcardpay.ui.theme.White20
+import com.vini.creditcardpay.ui.theme.card_background
+import com.vini.creditcardpay.ui.theme.text_white_transparency
 import com.vini.creditcardpay.ui.theme.typographyCreditCardPay
 
 @Composable
 fun CreditCard(stateScreen: StateScreen?) {
     Card(
         shape = RoundedCornerShape(12.dp),
-        backgroundColor = CardBackground,
+        backgroundColor = card_background,
         modifier = Modifier
             .fillMaxWidth(0.7f)
             .fillMaxHeight(0.7f)
@@ -40,7 +40,7 @@ fun CreditCard(stateScreen: StateScreen?) {
                 Text(
                     text = "MER\nCADO\nPAGO",
                     modifier = Modifier.padding(horizontal = 4.dp, vertical = 20.dp),
-                    color = White20,
+                    color = text_white_transparency,
                     style = typographyCreditCardPay.displayLarge
                 )
             }
@@ -69,9 +69,4 @@ fun CreditCard(stateScreen: StateScreen?) {
             }
         }
     }
-}
-
-@Composable
-fun CreditCardName() {
-
 }

@@ -24,9 +24,9 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.vini.creditcardpay.state.PaymentFlag
-import com.vini.creditcardpay.ui.theme.Blue
-import com.vini.creditcardpay.ui.theme.CardBackground
 import com.vini.creditcardpay.ui.theme.CreditCardTheme
+import com.vini.creditcardpay.ui.theme.card_background
+import com.vini.creditcardpay.ui.theme.md_theme_light_primary
 import com.vini.creditcardpay.ui.theme.typographyCreditCardPay
 import com.vini.twitch.creditcardpay.R
 
@@ -36,7 +36,7 @@ fun PaymentTypeSection(
     paymentFlag: PaymentFlag,
     paymentText: String
 ) {
-    FoundationRow(modifier = modifier.fillMaxSize().background(CardBackground)) {
+    FoundationRow(modifier = modifier.fillMaxSize().background(card_background)) {
         TwoRow(primary = {
             Column(
                 modifier = Modifier
@@ -49,12 +49,12 @@ fun PaymentTypeSection(
                     painter = painterResource(id = R.drawable.ic_card_outline),
                     contentDescription = null,
                     contentScale = ContentScale.FillWidth,
-                    colorFilter = ColorFilter.tint(Blue),
+                    colorFilter = ColorFilter.tint(md_theme_light_primary),
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = paymentText,
-                    color = Blue,
+                    color = md_theme_light_primary,
                     style = typographyCreditCardPay.bodyMedium
                 )
             }

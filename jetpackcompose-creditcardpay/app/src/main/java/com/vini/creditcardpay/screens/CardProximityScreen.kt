@@ -15,12 +15,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.vini.creditcardpay.components.CreditCard
 import com.vini.creditcardpay.components.PulseAnimation
 import com.vini.creditcardpay.screens.viewmodel.CardProximityViewModel
 import com.vini.creditcardpay.state.StateScreen
-import com.vini.creditcardpay.ui.theme.Green
-import com.vini.creditcardpay.ui.theme.White
+import com.vini.creditcardpay.ui.theme.done
 import kotlinx.coroutines.delay
 
 @ExperimentalAnimationApi
@@ -53,10 +53,10 @@ fun CardProximityScreen(viewModel: CardProximityViewModel = viewModel()) {
 
 @Composable
 fun ShowBoxGreen() {
-    val color = remember { Animatable(White) }
+    val color = remember { Animatable(Color.White) }
     LaunchedEffect(true) {
         color.animateTo(
-            Green,
+            done,
             animationSpec = tween(durationMillis = 700, easing = FastOutSlowInEasing)
         )
     }

@@ -24,8 +24,6 @@ fun FoundationRow(
                     .padding(
                         horizontal = 16.dp,
                         vertical = 18.dp
-//                        horizontal = RowDefaults.HorizontalPadding,
-//                        vertical = RowDefaults.VerticalPadding
                     )
             }
         ) {
